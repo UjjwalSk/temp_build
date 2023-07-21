@@ -1,7 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Navbar = (props) => {
+    const navigate = useNavigate();
     return (
         <nav className="py-2 text-center bg-primary bg-light text-center position-relative fixed-top">
             <Link to="/home" className='btn text-dark'>
@@ -12,6 +13,12 @@ const Navbar = (props) => {
             <Link to="/home" className='btn btn-dark hover-expand mx-2 text-sm'>Home</Link>
             <Link to="/whereto" className='btn btn-dark hover-expand mx-2 text-sm'>Going</Link>
             <Link to="/towhere" className='btn btn-dark hover-expand mx-2 text-sm'>Need to go</Link>
+            <div className='btn btn-danger mx-2 text-sm'
+                onClick={() => {
+                    localStorage.removeItem('user');
+                    navigate("/");
+                }}
+            >Logout</div>
         </nav>
     )
 }

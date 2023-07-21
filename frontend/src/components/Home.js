@@ -20,6 +20,12 @@ const Home = () => {
         <div><Link to="/home" className='btn btn-dark m-2 w-25 text-md'>Home</Link></div>
         <div><Link to="/whereto" className='btn btn-dark m-2 w-25 text-md'>Going</Link></div>
         <div><Link to="/towhere" className='btn btn-dark m-2 w-25 text-md'>Need to go</Link></div>
+        <div className='btn btn-danger m-2 w-25 text-md'
+          onClick={() => {
+            localStorage.removeItem('user');
+            navigate("/");
+          }}
+        >Logout</div>
       </div>
       <br /><br /><br /><br /><br />
     </div>
